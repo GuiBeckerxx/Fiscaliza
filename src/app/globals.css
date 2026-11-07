@@ -1,0 +1,446 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Identidade visual — Melo, Rahman & Bressan
+   Paleta: grafite #0B0F17 · off-white #F4F2ED · texto #1A1D24 / #E8E6E1
+           cinza #8A8F98 · acento único latão #B4935A (linhas, detalhes, hover)
+   ========================================================================== */
+
+@theme {
+  --color-grafite: #0b0f17;
+  --color-offwhite: #f4f2ed;
+  --color-tinta: #1a1d24;
+  --color-papel: #e8e6e1;
+  --color-cinza: #8a8f98;
+  --color-latao: #b4935a;
+
+  --ease-suave: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-entrada: entrada 400ms var(--ease-suave) both;
+
+  @keyframes entrada {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+/* Tokens semânticos: mudam conforme o tema da seção (claro/escuro). */
+@theme inline {
+  --font-serif:
+    var(--font-instrument-serif), "Iowan Old Style", "Times New Roman", serif;
+  --font-sans:
+    var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    sans-serif;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-brass: var(--brass);
+  --color-brass-ink: var(--brass-ink);
+  --color-btn: var(--btn);
+  --color-btn-ink: var(--btn-ink);
+  --color-btn-hover: var(--btn-hover);
+  --color-danger: var(--danger);
+  --color-focus: var(--focus);
+}
+
+/*
+ * Tema claro (padrão) e escuro.
+ * Ajustes de acessibilidade (WCAG AA), mantendo a mesma família de cores:
+ * - texto secundário no claro: #5F646D (o cinza #8A8F98 não atinge 4,5:1
+ *   sobre o off-white e fica reservado a linhas e ao tema escuro);
+ * - detalhes em latão com função de texto/foco no claro: #7D6034 (o latão
+ *   #B4935A não atinge 3:1 sobre o off-white e fica reservado a linhas).
+ */
+:root,
+.tema-claro {
+  --surface: #f4f2ed;
+  --surface-raised: #ebe8e1;
+  --ink: #1a1d24;
+  --ink-muted: #5f646d;
+  --rule: rgb(26 29 36 / 0.12);
+  --rule-strong: rgb(26 29 36 / 0.24);
+  --brass: #b4935a;
+  --brass-ink: #7d6034;
+  --focus: #7d6034;
+  --btn: #1a1d24;
+  --btn-ink: #f4f2ed;
+  --btn-hover: #7d6034;
+  --danger: #9f3a26;
+  --grade: rgb(26 29 36 / 0.06);
+  color-scheme: light;
+}
+
+.tema-escuro {
+  --surface: #0b0f17;
+  --surface-raised: #121722;
+  --ink: #e8e6e1;
+  --ink-muted: #8a8f98;
+  --rule: rgb(232 230 225 / 0.12);
+  --rule-strong: rgb(232 230 225 / 0.24);
+  --brass: #b4935a;
+  --brass-ink: #b4935a;
+  --focus: #b4935a;
+  --btn: #e8e6e1;
+  --btn-ink: #0b0f17;
+  --btn-hover: #b4935a;
+  --danger: #f0a693;
+  --grade: rgb(232 230 225 / 0.075);
+  color-scheme: dark;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+    background-color: #0b0f17;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: rgb(180 147 90 / 0.32);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ==========================================================================
+   Utilitários da identidade
+   ========================================================================== */
+
+/* Contêiner com gutters responsivos (20 / 32 / 40 px). */
+@utility container-site {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 48rem) {
+    padding-inline: 2rem;
+  }
+
+  @media (width >= 80rem) {
+    padding-inline: 2.5rem;
+  }
+}
+
+/* Rótulos numerados e dados em mono ("01 / Áreas de atuação"). */
+@utility rotulo-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Sublinhado animado (latão) para links de navegação. */
+@utility link-sublinhado {
+  background-image: linear-gradient(var(--brass), var(--brass));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  padding-bottom: 2px;
+  transition: background-size 300ms var(--ease-suave);
+
+  &:hover,
+  &:focus-visible,
+  &[aria-current] {
+    background-size: 100% 1px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+/* Links dentro de texto corrido: sempre sublinhados (WCAG 1.4.1). */
+@utility link-texto {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: var(--brass);
+  transition: text-decoration-color 200ms ease, color 200ms ease;
+
+  &:hover {
+    text-decoration-color: currentColor;
+  }
+}
+
+/* Grade fina de 1 px (textura do hero). */
+@utility grade-fina {
+  background-image:
+    linear-gradient(to right, var(--grade) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grade) 1px, transparent 1px);
+  background-size: 72px 72px;
+  background-position: -1px -1px;
+}
+
+/* Entrada no carregamento (hero e cabeçalhos de página). */
+@utility animar-entrada {
+  animation: var(--animate-entrada);
+  animation-delay: var(--atraso, 0ms);
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Revelação ao rolar (IntersectionObserver em RevealObserver.tsx).
+   Sem JavaScript, ou com movimento reduzido, o conteúdo fica sempre visível.
+   ========================================================================== */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    transition:
+      opacity 400ms var(--ease-suave),
+      transform 400ms var(--ease-suave);
+    transition-delay: var(--atraso, 0ms);
+  }
+
+  html[data-reveal-pronto] [data-reveal]:not([data-revelado]) {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* ==========================================================================
+   Texto longo (artigos MDX e documentos legais)
+   ========================================================================== */
+
+@utility prosa {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--ink);
+
+  & :where(p, ul, ol, blockquote, figure, div[role="region"]) {
+    margin-top: 1.15em;
+  }
+
+  & :where(h2) {
+    margin-top: 2.4em;
+    font-family: var(--font-serif);
+    font-size: 1.875rem;
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+  }
+
+  & :where(h3) {
+    margin-top: 2em;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  & :where(h2 + *, h3 + *) {
+    margin-top: 0.75em;
+  }
+
+  & > :first-child,
+  & > :first-child > :first-child {
+    margin-top: 0;
+  }
+
+  & ul,
+  & ol {
+    padding-left: 1.4em;
+  }
+
+  & ul > li {
+    position: relative;
+    list-style: none;
+  }
+
+  & ul > li::before {
+    content: "";
+    position: absolute;
+    top: 0.85em;
+    left: -1.25em;
+    width: 0.6em;
+    height: 1px;
+    background-color: var(--brass);
+  }
+
+  & ol > li {
+    list-style: decimal;
+  }
+
+  & ol > li::marker {
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    color: var(--ink-muted);
+  }
+
+  & li + li {
+    margin-top: 0.4em;
+  }
+
+  & a {
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    text-decoration-color: var(--brass);
+  }
+
+  & a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  & strong {
+    font-weight: 600;
+  }
+
+  & hr {
+    border-color: var(--rule);
+    margin-block: 2.5em;
+  }
+
+  & blockquote {
+    border-left: 1px solid var(--brass);
+    padding-left: 1.25em;
+    color: var(--ink-muted);
+  }
+
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  & th,
+  & td {
+    padding: 0.7em 1em 0.7em 0;
+    border-bottom: 1px solid var(--rule);
+    text-align: left;
+  }
+
+  & th {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    border-bottom-color: var(--rule-strong);
+  }
+}
+
+/* ==========================================================================
+   Menu lateral (dialog nativo) — mobile
+   ========================================================================== */
+
+.menu-lateral {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.menu-lateral::backdrop {
+  background-color: rgb(11 15 23 / 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu-lateral[open] .menu-lateral__painel {
+    animation: painel-entrada 320ms var(--ease-suave);
+  }
+
+  .menu-lateral[open]::backdrop {
+    animation: fundo-entrada 320ms ease;
+  }
+
+  .menu-lateral[data-fechando] .menu-lateral__painel {
+    animation: painel-saida 220ms ease forwards;
+  }
+
+  .menu-lateral[data-fechando]::backdrop {
+    animation: fundo-saida 220ms ease forwards;
+  }
+}
+
+@keyframes painel-entrada {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes painel-saida {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fundo-entrada {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fundo-saida {
+  to {
+    opacity: 0;
+  }
+}

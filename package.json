@@ -1,0 +1,39 @@
+{
+  "name": "melo-rahman-bressan-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional informativo de Melo, Rahman & Bressan Sociedade de Advogados (Tributário & Bancário).",
+  "scripts": {
+    "dev": "next dev",
+    "build": "node scripts/lint-copy.mjs && next build",
+    "preview": "node scripts/serve-out.mjs",
+    "lint": "eslint",
+    "lint:copy": "node scripts/lint-copy.mjs",
+    "typecheck": "tsc --noEmit",
+    "pendencias": "node scripts/pendencias.mjs",
+    "pendencias:strict": "node scripts/pendencias.mjs --strict"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
+    "@next/mdx": "16.4.5",
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/mdx": "^2.0.14",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.5",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5"
+  }
+}
