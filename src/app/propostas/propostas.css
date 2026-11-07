@@ -1,0 +1,9 @@
+/*
+ * Folha da apresentação. Registra os caminhos das propostas com @source para
+ * que o Tailwind os leia mesmo quando estiverem ignorados pelo git (uso local,
+ * via .git/info/exclude). Reimporta o globals.css para ter o mesmo tema e as
+ * mesmas utilidades do site.
+ */
+@import "../globals.css";
+@source "../../components/propostas";
+@source "./";
