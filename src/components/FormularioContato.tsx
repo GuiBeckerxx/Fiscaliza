@@ -296,7 +296,7 @@ export function FormularioContato({ endpoint }: { endpoint: string }) {
           type="submit"
           disabled={enviando}
           aria-disabled={enviando}
-          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-btn px-6 text-[0.9375rem] font-medium text-btn-ink transition-colors duration-300 hover:bg-btn-hover disabled:cursor-wait disabled:opacity-70"
+          className="group inline-flex min-h-12 items-center justify-center gap-3 rounded-full bg-btn px-7 text-[0.9375rem] font-medium text-btn-ink transition-colors duration-300 hover:bg-btn-hover disabled:cursor-wait disabled:opacity-70"
         >
           {enviando && (
             <span

@@ -115,14 +115,14 @@ export function ConsentimentoCookies({ id }: { id: string }) {
         <button
           type="button"
           onClick={() => decidir("recusado")}
-          className="inline-flex min-h-11 items-center rounded-md border border-rule-strong px-5 text-[0.9375rem] transition-colors hover:border-brass"
+          className="inline-flex min-h-11 items-center rounded-full border border-rule-strong px-5 text-[0.9375rem] transition-colors hover:border-brass"
         >
           {textos.recusar}
         </button>
         <button
           type="button"
           onClick={() => decidir("aceito")}
-          className="inline-flex min-h-11 items-center rounded-md border border-rule-strong px-5 text-[0.9375rem] transition-colors hover:border-brass"
+          className="inline-flex min-h-11 items-center rounded-full border border-rule-strong px-5 text-[0.9375rem] transition-colors hover:border-brass"
         >
           {textos.aceitar}
         </button>

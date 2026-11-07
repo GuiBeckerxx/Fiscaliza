@@ -42,7 +42,7 @@ export function MapaFachada({ endereco, pendente }: { endereco: string; pendente
                 <button
                   type="button"
                   onClick={() => setCarregado(true)}
-                  className="inline-flex min-h-11 items-center rounded-md border border-rule-strong px-5 text-[0.875rem] text-ink transition-colors hover:border-brass"
+                  className="inline-flex min-h-11 items-center rounded-full border border-rule-strong px-5 text-[0.875rem] text-ink transition-colors hover:border-brass"
                 >
                   {textos.carregar}
                 </button>

@@ -10,7 +10,7 @@ export function Escritorio({ numero }: { numero: number }) {
     <section
       id={secoes.escritorio}
       aria-labelledby="escritorio-titulo"
-      className="tema-claro bg-surface text-ink"
+      className="tema-claro border-t border-rule bg-surface text-ink"
     >
       <div className="container-site py-24 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">

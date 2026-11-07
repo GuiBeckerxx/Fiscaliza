@@ -12,6 +12,7 @@ import type { Area } from "./types";
 export const areas: Area[] = [
   {
     slug: "imposto-de-renda-previdencia-complementar",
+    icone: "documento",
     titulo: "Imposto de renda sobre previdência complementar",
     resumo:
       "Tributação de contribuições, resgates e benefícios de previdência complementar.",
@@ -56,6 +57,7 @@ export const areas: Area[] = [
   },
   {
     slug: "isencao-imposto-de-renda-doenca-grave",
+    icone: "escudo",
     titulo: "Isenção de imposto de renda por doença grave",
     resumo:
       "Isenção sobre proventos de aposentadoria, reforma e pensão nas hipóteses legais.",
@@ -94,6 +96,7 @@ export const areas: Area[] = [
   },
   {
     slug: "tributacao-plr-verbas-rescisorias",
+    icone: "recibo",
     titulo: "Tributação de PLR e verbas rescisórias",
     resumo:
       "Imposto de renda sobre PLR, verbas rescisórias e programas de desligamento.",
@@ -134,6 +137,7 @@ export const areas: Area[] = [
   },
   {
     slug: "jornada-bancaria-cargo-de-confianca",
+    icone: "calendario",
     titulo: "Jornada bancária e cargo de confiança",
     resumo:
       "Jornada de seis horas do bancário e critérios legais para o cargo de confiança.",
@@ -173,6 +177,7 @@ export const areas: Area[] = [
   },
   {
     slug: "contratos-bancarios-consignados",
+    icone: "contrato",
     titulo: "Contratos bancários e consignados",
     resumo:
       "Contratos de crédito, consignados e tarifas, à luz do Código de Defesa do Consumidor.",
@@ -212,6 +217,7 @@ export const areas: Area[] = [
   },
   {
     slug: "planejamento-tributario-aposentadoria",
+    icone: "bussola",
     titulo: "Planejamento tributário na aposentadoria",
     resumo:
       "Efeitos tributários de resgates e da forma de recebimento de benefícios na aposentadoria.",

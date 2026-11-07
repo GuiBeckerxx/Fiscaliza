@@ -49,7 +49,13 @@ Requer Node.js 20.9 ou superior.
 | Menu e rótulos de interface | `src/content/navegacao.ts` |
 | Rodapé, página 404, aviso de cookies e rótulos de acessibilidade | `src/content/interface.ts` |
 
-Para destacar um trecho em itálico nos títulos, use sublinhados: `"... para _profissionais do sistema financeiro_."`.
+Para destacar um trecho em itálico nos títulos, use sublinhados: `"... para profissionais do _sistema financeiro_."` (na abertura, o destaque aparece em latão).
+
+### Abertura (hero)
+
+- O painel em arco central exibe o monograma do escritório. Para usar uma **foto real do escritório ou dos sócios**, coloque-a em `public/` (WebP, retrato, ~900 × 1200 px) e preencha `imagem: { src: "/arquivo.webp", alt: "descrição" }` em `hero`, em `src/content/home.ts`. Não use banco de imagens, balança, martelo nem símbolos da OAB.
+- A coluna da direita lista as áreas de `src/content/areas.ts`. Os ícones selecionam qual resumo aparece; o ícone de cada área é definido no campo `icone`.
+- Os números ("Áreas de atuação" e "Sócios") são contados automaticamente a partir do conteúdo. Não substitua por resultados, casos ou percentuais.
 
 ### Sócios
 

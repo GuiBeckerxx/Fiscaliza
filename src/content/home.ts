@@ -1,6 +1,7 @@
 import { site } from "./site";
 import { secoes } from "./navegacao";
 import { socios } from "./socios";
+import { areas } from "./areas";
 
 const { registroSociedade: registro, endereco } = site;
 
@@ -15,10 +16,13 @@ function porExtenso(itens: string[]): string {
  * Use _sublinhados_ para destacar um trecho em itálico nos títulos.
  */
 
+/** Dois dígitos: 6 → "06". */
+const doisDigitos = (n: number) => String(n).padStart(2, "0");
+
 export const hero = {
-  rotulo: site.descritor,
+  /** O trecho entre _sublinhados_ aparece em latão. */
   titulo:
-    "Direito tributário e bancário para _profissionais do sistema financeiro_.",
+    "Direito tributário e bancário para profissionais do _sistema financeiro_.",
   subtitulo:
     "Orientação jurídica técnica e individualizada para bancários e ex-bancários em questões tributárias, previdenciárias e contratuais.",
   acoes: {
@@ -33,6 +37,28 @@ export const hero = {
     `Desde ${site.anoFundacao}`,
     `Registro OAB/${registro.uf} nº ${registro.numero}`,
     `Atendimento presencial em ${endereco.cidade} e online`,
+  ],
+  /**
+   * Foto do painel central (opcional): retrato profissional do escritório ou
+   * dos sócios, em /public (ex.: { src: "/escritorio.webp", alt: "..." }).
+   * Não use banco de imagens, balança, martelo nem símbolos da OAB.
+   * Sem foto, o painel exibe o monograma do escritório.
+   */
+  imagem: undefined as { src: string; alt: string } | undefined,
+  painel: {
+    nome: site.nome,
+    legenda: "Sociedade de Advogados",
+  },
+  /** Coluna à direita: áreas de atuação com resumo da selecionada. */
+  areas: {
+    rotulo: "Áreas de atuação",
+    grupoIcones: "Selecionar área para ver o resumo",
+    destacar: "Ver resumo:",
+  },
+  /** Somente contagens factuais (nunca resultados, casos ou índices de êxito). */
+  numeros: [
+    { valor: doisDigitos(areas.length), rotulo: "Áreas de atuação" },
+    { valor: doisDigitos(socios.length), rotulo: "Sócios" },
   ],
 };
 

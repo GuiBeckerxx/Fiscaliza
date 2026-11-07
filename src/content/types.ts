@@ -37,9 +37,20 @@ export type Socio = {
   foto?: string;
 };
 
+/** Ícones neutros das áreas (sem balança, martelo ou símbolos da OAB). */
+export type IconeArea =
+  | "documento"
+  | "escudo"
+  | "recibo"
+  | "calendario"
+  | "contrato"
+  | "bussola";
+
 export type Area = {
   slug: string;
   titulo: string;
+  /** Ícone exibido na coluna de áreas da abertura (hero). */
+  icone: IconeArea;
   /** Texto do card na página inicial (cerca de duas linhas). */
   resumo: string;
   /** Parágrafo de abertura da página interna. */

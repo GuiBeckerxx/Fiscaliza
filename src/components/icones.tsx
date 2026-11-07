@@ -1,4 +1,5 @@
 /** Ícones de linha (1,5 px), desenhados para o projeto. Decorativos. */
+import type { IconeArea } from "@/content/types";
 
 type IconeProps = { className?: string };
 
@@ -76,4 +77,23 @@ export function IconeMapa({ className }: IconeProps) {
       <circle cx="12" cy="10" r="2.25" />
     </Svg>
   );
+}
+
+/* Ícones das áreas de atuação: neutros, sem balança, martelo ou símbolos da OAB. */
+const desenhosArea: Record<IconeArea, React.ReactNode> = {
+  documento: <path d="M7 3h7l4 4v14H7V3ZM14 3v4h4M10 12h5M10 16h5" />,
+  escudo: <path d="M12 3 19 6v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3ZM9.25 12l2 2 3.5-3.75" />,
+  recibo: <path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21V3ZM9 8h6M9 12h6M9 16h3" />,
+  calendario: <path d="M4 6h16v15H4V6ZM4 10h16M8 3v4M16 3v4M8 14h2M12 14h2M8 17.5h2" />,
+  contrato: <path d="m15.5 4.5 4 4L9 19H5v-4L15.5 4.5ZM13 7l4 4M5 21h14" />,
+  bussola: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
+    </>
+  ),
+};
+
+export function IconeDaArea({ nome, className }: IconeProps & { nome: IconeArea }) {
+  return <Svg className={className}>{desenhosArea[nome]}</Svg>;
 }

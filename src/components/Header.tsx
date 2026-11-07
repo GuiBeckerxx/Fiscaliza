@@ -22,6 +22,8 @@ function ehSecaoAtual(pathname: string, href: string): boolean {
 
 export function Header() {
   const pathname = usePathname();
+  // A página inicial abre com fundo claro; as internas, com faixa escura.
+  const temaClaro = pathname === "/";
   const [rolou, setRolou] = useState(false);
   const [menuAberto, setMenuAberto] = useState(false);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -90,9 +92,9 @@ export function Header() {
 
   return (
     <header
-      className={`tema-escuro fixed inset-x-0 top-0 z-40 border-b text-ink transition-[background-color,border-color] duration-300 ${
+      className={`${temaClaro ? "tema-claro" : "tema-escuro"} fixed inset-x-0 top-0 z-40 border-b text-ink transition-[background-color,border-color] duration-300 ${
         rolou
-          ? "border-rule bg-grafite/80 backdrop-blur-md backdrop-saturate-150"
+          ? `border-rule backdrop-blur-md backdrop-saturate-150 ${temaClaro ? "bg-offwhite/85" : "bg-grafite/80"}`
           : "border-transparent bg-transparent"
       }`}
     >
@@ -121,7 +123,7 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             href={botaoCabecalho.href}
-            className="hidden h-10 items-center rounded-md border border-rule-strong px-4 text-[0.875rem] text-ink transition-colors duration-300 hover:border-brass lg:inline-flex"
+            className="hidden h-10 items-center rounded-full bg-btn px-5 text-[0.875rem] font-medium text-btn-ink transition-colors duration-300 hover:bg-btn-hover lg:inline-flex"
           >
             {botaoCabecalho.rotulo}
           </Link>
@@ -131,7 +133,7 @@ export function Header() {
             aria-haspopup="dialog"
             aria-expanded={menuAberto}
             aria-controls="menu-lateral"
-            className="inline-flex h-10 items-center gap-2 rounded-md border border-rule-strong px-3 text-ink transition-colors hover:border-brass lg:hidden"
+            className="inline-flex h-10 items-center gap-2 rounded-full border border-rule-strong px-4 text-ink transition-colors hover:border-brass lg:hidden"
           >
             <span className="rotulo-mono text-[0.6875rem]">{rotulosInterface.menu}</span>
             <IconeMenu className="size-5" />
@@ -164,7 +166,7 @@ export function Header() {
               type="button"
               onClick={fecharAnimado}
               aria-label={rotulosInterface.fecharMenu}
-              className="inline-flex size-10 items-center justify-center rounded-md border border-rule-strong transition-colors hover:border-brass"
+              className="inline-flex size-10 items-center justify-center rounded-full border border-rule-strong transition-colors hover:border-brass"
             >
               <IconeFechar className="size-5" />
             </button>
@@ -192,7 +194,7 @@ export function Header() {
             <Link
               href={botaoCabecalho.href}
               onClick={fecharImediato}
-              className="group mt-8 inline-flex min-h-12 w-full items-center justify-between rounded-md bg-btn px-5 text-[0.9375rem] font-medium text-btn-ink transition-colors hover:bg-btn-hover"
+              className="group mt-8 inline-flex min-h-12 w-full items-center justify-between rounded-full bg-btn px-6 text-[0.9375rem] font-medium text-btn-ink transition-colors hover:bg-btn-hover"
             >
               {botaoCabecalho.rotulo}
               <SetaDireita className="size-4 transition-transform group-hover:translate-x-0.5" />

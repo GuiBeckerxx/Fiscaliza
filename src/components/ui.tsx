@@ -11,16 +11,18 @@ import { SetaDireita, SetaDiagonal } from "./icones";
 type BotaoProps = {
   href: string;
   children: React.ReactNode;
-  variante?: "primario" | "secundario";
+  variante?: "primario" | "secundario" | "destaque";
   className?: string;
 };
 
 const baseBotao =
-  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-md px-5 text-[0.9375rem] font-medium tracking-[0.005em] transition-[background-color,border-color,color] duration-300 ease-[var(--ease-suave)]";
+  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-6 text-[0.9375rem] font-medium tracking-[0.005em] transition-[background-color,border-color,color] duration-300 ease-[var(--ease-suave)]";
 
 const variantesBotao = {
   primario: "bg-btn text-btn-ink hover:bg-btn-hover",
   secundario: "border border-rule-strong text-ink hover:border-brass",
+  /** Bronze com texto branco (contraste AA), para a ação principal da abertura. */
+  destaque: "bg-bronze text-white hover:bg-bronze-escuro",
 };
 
 export function Botao({ href, children, variante = "primario", className = "" }: BotaoProps) {
@@ -64,12 +66,18 @@ export function RotuloSecao({
 /* Texto com trechos em itálico (_assim_)                                      */
 /* -------------------------------------------------------------------------- */
 
-export function TextoComDestaque({ texto }: { texto: string }) {
+export function TextoComDestaque({
+  texto,
+  classeDestaque = "",
+}: {
+  texto: string;
+  classeDestaque?: string;
+}) {
   return (
     <>
       {partesComDestaque(texto).map((parte, i) =>
         parte.destaque ? (
-          <em key={i} className="italic">
+          <em key={i} className={`italic ${classeDestaque}`}>
             {parte.texto}
           </em>
         ) : (

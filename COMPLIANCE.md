@@ -36,14 +36,19 @@ Relatório de conformidade do site de **Melo, Rahman & Bressan Sociedade de Advo
 - **Textos:** monograma "MRB" + "Melo, Rahman & Bressan" / "Tributário & Bancário"; menu "Escritório · Áreas de atuação · Sócios · Conteúdo · Contato"; botão "Fale com o escritório".
 - **Por que está conforme:** identifica a sociedade pelo nome (CED, art. 44) e usa logotipo próprio, sem símbolos da OAB (Prov., art. 5º, § 2º). O descritor indica áreas de atuação, sem alegar especialização (Prov., art. 3º, III). O único botão usa chamada permitida, sem apelo à contratação.
 
-### 2.2 Hero
+### 2.2 Hero (abertura)
 
-- **Rótulo:** "Tributário & Bancário".
-- **Título:** "Direito tributário e bancário para profissionais do sistema financeiro."
+Composição em três colunas sobre fundo claro: título e ações à esquerda, painel em arco ao centro e áreas de atuação à direita.
+
+- **Título:** "Direito tributário e bancário para profissionais do sistema financeiro." ("sistema financeiro" em latão).
 - **Subtítulo:** "Orientação jurídica técnica e individualizada para bancários e ex-bancários em questões tributárias, previdenciárias e contratuais."
 - **Ações:** "Fale com o escritório" e "Conheça as áreas de atuação".
+- **Painel central:** monograma "MRB", "Melo, Rahman & Bressan" e "Sociedade de Advogados". Opcionalmente, foto real do escritório ou dos sócios (`hero.imagem`).
+- **Coluna de áreas:** "Áreas de atuação", ícones neutros (documento, escudo, recibo, calendário, caneta, bússola), títulos das seis áreas com links e o resumo da área selecionada.
 - **Faixa informativa:** "Desde [ANO]" · "Registro OAB/[UF] nº [X]" · "Atendimento presencial em [CIDADE] e online". `[CONFIRMAR]`
-- **Por que está conforme:** descreve áreas, público e forma de atendimento sem adjetivos de autopromoção, comparações ou promessas (Prov., art. 3º, § 1º e IV). A faixa contém apenas dados objetivos e verificáveis (art. 1º, § 1º), que devem ser preenchidos com informações reais. Sem imagens ilustrativas: a textura é uma grade de linhas de 1 px.
+- **Números:** "Áreas de atuação 06" e "Sócios 03" — contagens geradas do próprio conteúdo.
+- **Por que está conforme:** descreve áreas, público e forma de atendimento sem adjetivos de autopromoção, comparações ou promessas (Prov., art. 3º, § 1º e IV). A faixa contém apenas dados objetivos e verificáveis (art. 1º, § 1º). Os números são contagens descritivas, não resultados, casos ou índices de êxito (Prov., arts. 3º e 6º). O painel usa a identidade própria do escritório; fotos dos advogados e do escritório são permitidas (Prov., art. 5º, § 2º).
+- **Elementos da referência visual que não foram adotados:** estátua da Justiça com balança e espada (símbolo vedado no briefing e foto de banco de imagens); ícone de martelo (vedado no briefing); logotipos de clientes (CED, art. 42, IV); "10K+ casos atendidos" e "98% de satisfação" (resultados e percentuais — Prov., arts. 3º, IV, e 6º); chamada "Consult Now" e expressões como "unparalleled expertise" (persuasivas e de autoengrandecimento — Prov., art. 3º, III e IV).
 
 ### 2.3 01 / O escritório
 
